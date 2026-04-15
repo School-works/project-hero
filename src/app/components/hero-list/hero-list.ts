@@ -15,9 +15,11 @@ export class HeroList {
     { id: 2, nome: 'Batman', potere: 'Intelligenza', completata: false },
   ]
 
+  totalCompleted: number = this.heroList.filter(h => h.completata).length;
 
   handleCompleted(hero: Hero) {
     hero.completata = true;
+    this.totalCompleted = this.heroList.filter(h => h.completata).length;
   }
 
 }

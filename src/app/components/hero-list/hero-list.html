@@ -1,0 +1,7 @@
+<app-hero-card 
+    *ngFor="let h of heroList"
+
+    [hero]="h"
+    (onCompleted)="handleCompleted($event)"
+></app-hero-card>
+

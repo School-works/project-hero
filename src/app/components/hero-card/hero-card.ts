@@ -18,6 +18,6 @@ export class HeroCard {
   }
 
   switchPage(page: string) {
-    this.router.navigate([page, this.hero.nome]);
+    this.router.navigate([page, this.hero.id]);
   }
 }

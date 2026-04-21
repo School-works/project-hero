@@ -4,5 +4,5 @@ import { HeroCard } from './components/hero-card/hero-card';
 
 export const routes: Routes = [
   { path: '', component: HeroCard },
-  { path: 'edit/:name', component: Edit }
+  { path: 'edit/:id', component: Edit }
 ];

@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeroList } from './components/hero-list/hero-list';
+import { Edit } from './components/edit/edit';
 
 @Component({
   selector: 'app-root',

@@ -2,6 +2,7 @@ import { Component, input } from '@angular/core';
 import { Hero } from '../../models/hero';
 import { HeroCard } from "../hero-card/hero-card";
 import { CommonModule } from '@angular/common';
+import { HeroContainer } from '../../services/hero-container';
 
 @Component({
   selector: 'app-hero-list',
@@ -10,12 +11,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './hero-list.css',
 })
 export class HeroList {
-  heroList: Hero[] = [
-    { id: 1, nome: 'Superman', potere: 'Super forza', completata: false },
-    { id: 2, nome: 'Batman', potere: 'Intelligenza', completata: false },
-  ]
+  constructor(
+    private heroes: HeroContainer
+  ) {}
 
-  totalCompleted: number = this.heroList.filter(h => h.completata).length;
+  heroList!: Hero[];
+  totalCompleted!: number;
+
+  ngOnInit() {
+    this.heroList = this.heroes.getHeroes()
+    this.totalCompleted = this.heroList.filter(h => h.completata).length;
+  }
+
 
   handleCompleted(hero: Hero) {
     hero.completata = true;
